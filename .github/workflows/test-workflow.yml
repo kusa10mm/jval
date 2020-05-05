@@ -8,6 +8,9 @@ jobs:
     name: jest
     runs-on: ubuntu-latest
     steps:
-      - name: jest
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
       - run: yarn
       - run: yarn jest
