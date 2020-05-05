@@ -1,0 +1,13 @@
+name: test ts files
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: jest
+    runs-on: ubuntu-latest
+    steps:
+      - name: jest
+      - run: yarn
+      - run: yarn jest
