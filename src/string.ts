@@ -1,16 +1,26 @@
-export const string = (): Schema => {
-    return {type: 'string'}
+export const string = (): StringSchema => {
+    return new StringSchema();
 };
 
-interface Schema {
-    type: string
-}
+export class StringSchema {
+    conditions: {
+      required: boolean;
+    };
 
-export const validate = (schema: Schema, value: any) => {
-    if (schema.type === 'string') {
-        if (typeof value !== "string") {
-            throw new Error('type of value is not string')
+    constructor() {
+        this.conditions = {
+            required: false
         }
     }
-    return value
-};
+
+    required() {
+        this.conditions.required = true;
+        return this
+    }
+
+    validate(value: any): string | undefined {
+        if (this.conditions.required && typeof value === "undefined") throw new Error("value is undefined");
+        if (typeof value !== "string" && typeof value !== "undefined") throw new Error('typeof value is not string');
+        return value;
+    }
+}
