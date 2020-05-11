@@ -1,25 +1,13 @@
-export class StringSchema {
-    private conditions: Conditions = {};
+import {Schema} from "../Schema/Schema";
 
-    required(required: boolean) {
-        this.conditions.required = required;
-        return this
-    }
-
+export class StringSchema extends Schema {
     async validate(value: any): Promise<string | undefined> {
-        if (this.conditions.required !== undefined) {
-            this.validateRequired(value)
-        }
-
-        if (typeof value !== "string" && typeof value !== "undefined") throw new Error('invalid');
+        this.baseValidate(value);
+        this.stringValidate(value);
         return value;
     }
 
-    private validateRequired(value: any): void {
-        if(this.conditions.required && value === undefined) throw new Error('invalid')
+    private stringValidate(value: any): void {
+        if (typeof value !== "string" && typeof value !== "undefined") throw new Error('invalid');
     }
-}
-
-export interface Conditions {
-    required?: boolean
 }
