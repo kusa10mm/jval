@@ -1,7 +1,7 @@
 import {Schema} from "../Schema";
 
 describe('required() method', () => {
-    it('should return StringSchema instance', () => {
+    it('should return Schema instance', () => {
         expect(new Schema().required(true)).toBeInstanceOf(Schema)
     });
 

@@ -8,8 +8,6 @@ export class Schema {
 
     async validate(value: any): Promise<any> {
         this.baseValidate(value);
-
-        if (typeof value !== "undefined") throw new Error('invalid');
         return value;
     }
 
