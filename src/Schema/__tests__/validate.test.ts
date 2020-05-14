@@ -8,10 +8,10 @@ describe('validate() method with no conditions', () => {
 
 describe('validate() method with conditions.required', () => {
     it('should throw Error', async () => {
-        await (expect(new Schema().required(true).validate(undefined))).rejects.toThrowError()
+        await (expect(new Schema().required().validate(undefined))).rejects.toThrowError()
     });
 
-    it('should return undefined', async () => {
-        await (expect(new Schema().required(false).validate(undefined))).resolves.toBe(undefined)
+    it('should return value', async () => {
+        await (expect(new Schema().required().validate('hello'))).resolves.toBe('hello')
     });
 });

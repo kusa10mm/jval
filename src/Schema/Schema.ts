@@ -1,20 +1,21 @@
-export class Schema {
-    protected conditions: Conditions = {};
+export class Schema<T> {
+    protected conditions: Conditions;
 
-    required(required: boolean) {
-        this.conditions.required = required;
-        return this
+    constructor(conditions?: Conditions) {
+        this.conditions = conditions ? conditions : {required: false}
     }
 
-    async validate(value: any): Promise<any> {
+    required(): Schema<Exclude<T, undefined>> {
+        return new Schema<Exclude<T, undefined>>({...this.conditions, required: true})
+    }
+
+    async validate(value: any): Promise<T> {
         this.baseValidate(value);
         return value;
     }
 
     protected baseValidate(value: any): void {
-        if (this.conditions.required !== undefined) {
-            this.validateRequired(value)
-        }
+        this.validateRequired(value)
     }
 
     private validateRequired(value: any): void {
@@ -23,5 +24,5 @@ export class Schema {
 }
 
 export interface Conditions {
-    required?: boolean
+    required: boolean
 }
