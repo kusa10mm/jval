@@ -1,7 +1,7 @@
 import {Schema} from "../Schema/Schema";
 
 export class StringSchema<T> extends Schema<T> {
-    async validate(value: any): Promise<T> {
+    async validate<V extends T>(value: V): Promise<V> {
         this.baseValidate(value);
         this.stringValidate(value);
         return value;
