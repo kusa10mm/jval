@@ -25,3 +25,19 @@ describe('validate() method with conditions.nullable', () => {
         await expect(new Schema().nullable(true).validate(null)).resolves.toBe(null);
     })
 });
+
+describe('validate() method with conditions.', () => {
+    it('should throw Error', async () => {
+        const schema = new Schema().oneOf(['hello', 5, false, null, undefined]);
+        await expect(schema.validate(3)).rejects.toThrowError()
+    });
+
+    it('should return value', async () => {
+        await expect(new Schema().oneOf(['hello', 5]).validate('hello')).resolves.toBe('hello');
+    });
+
+    it('should return value', async () => {
+        const schema = new Schema().oneOf(['hello', 5, false, null, undefined]);
+        await expect(schema.validate(undefined)).resolves.toBe(undefined);
+    });
+});

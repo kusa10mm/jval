@@ -7,6 +7,6 @@ describe('Schema constructor', () => {
     });
 
     it('should generate instance with args conditions', () => {
-        expect(new Schema({required: true, nullable: false})["conditions"]).toStrictEqual({required: true, nullable: false})
+        expect(new Schema({required: true, nullable: false, oneOf: ['test', 5]})["conditions"]).toStrictEqual({required: true, nullable: false, oneOf: ['test', 5]})
     })
 });
