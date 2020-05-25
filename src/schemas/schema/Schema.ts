@@ -1,3 +1,6 @@
+import {baseValidate} from "../../validator/baseValidate";
+import {Conditions} from "../../types/conditions";
+
 export class Schema<T = any> {
     protected conditions: Conditions;
 
@@ -23,33 +26,8 @@ export class Schema<T = any> {
     }
 
     async validate<V extends T>(value: V): Promise<V> {
-        this.baseValidate(value);
+        baseValidate(value, this.conditions);
         return value;
     }
-
-    protected baseValidate(value: any): void {
-        this.validateRequired(value);
-        this.validateNullable(value);
-        this.validateOneOf(value);
-    }
-
-    private validateRequired(value: any): void {
-        if (this.conditions.required && value === undefined) throw new Error('invalid')
-    }
-
-    private validateNullable(value: any): void {
-        if (!this.conditions.nullable && value === null) throw new Error('invalid: nullable=false but the value is null')
-    }
-
-    private validateOneOf(value: any): void {
-        if (this.conditions.oneOf === undefined) return;
-        if (!this.conditions.oneOf.includes(value)) throw new Error(`invalid: value is not included in ${this.conditions.oneOf}`)
-    }
-}
-
-export interface Conditions {
-    required: boolean
-    nullable: boolean
-    oneOf?: Array<any>
 }
 

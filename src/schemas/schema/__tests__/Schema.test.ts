@@ -1,4 +1,5 @@
-import {Conditions, Schema} from "../Schema";
+import {Conditions} from "../../../types/conditions";
+import {Schema} from "../Schema";
 
 describe('Schema constructor', () => {
     it('should generate instance with initialConditions', () => {

@@ -1,8 +1,9 @@
 import {Schema} from "../schema/Schema";
+import {baseValidate} from "../../validator/baseValidate";
 
 export class StringSchema<T> extends Schema<T> {
     async validate<V extends T>(value: V): Promise<V> {
-        this.baseValidate(value);
+        baseValidate(value, this.conditions);
         this.stringValidate(value);
         return value;
     }
