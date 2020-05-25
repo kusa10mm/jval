@@ -1,8 +1,8 @@
 import {string} from "../string";
 import {StringSchema} from "../StringSchema/StringSchema";
 
-describe('string()のテスト', () => {
-   it('string()によってStringSchemaインスタンスが生成されること', () => {
+describe('test string() method', () => {
+   it('should generate StringSchema instance by string()', () => {
       expect(string()).toBeInstanceOf(StringSchema);
    });
 });
