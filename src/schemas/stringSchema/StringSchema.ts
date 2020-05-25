@@ -1,4 +1,4 @@
-import {Schema} from "../Schema/Schema";
+import {Schema} from "../schema/Schema";
 
 export class StringSchema<T> extends Schema<T> {
     async validate<V extends T>(value: V): Promise<V> {

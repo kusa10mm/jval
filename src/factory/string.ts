@@ -1,4 +1,4 @@
-import {StringSchema} from "./StringSchema/StringSchema";
+import {StringSchema} from "../schemas/stringSchema/StringSchema";
 
 export const string = (): StringSchema<string> => {
     return new StringSchema();
