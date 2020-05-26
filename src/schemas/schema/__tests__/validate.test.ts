@@ -16,16 +16,6 @@ describe('validate() method with conditions.required', () => {
     });
 });
 
-describe('validate() method with conditions.nullable', () => {
-    it('should throw Error', async () => {
-        await expect(new Schema().nullable(false).validate(null)).rejects.toThrowError()
-    });
-
-    it('should return null', async () => {
-        await expect(new Schema().nullable(true).validate(null)).resolves.toBe(null);
-    })
-});
-
 describe('validate() method with conditions.', () => {
     it('should throw Error', async () => {
         const schema = new Schema().oneOf(['hello', 5, false, null, undefined]);
