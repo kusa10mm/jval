@@ -6,16 +6,6 @@ describe('validate() method with no conditions', () => {
     });
 });
 
-describe('validate() method with conditions.required', () => {
-    it('should throw Error', async () => {
-        await expect(new Schema().required().validate(undefined)).rejects.toThrowError()
-    });
-
-    it('should return value', async () => {
-        await expect(new Schema().required().validate('hello')).resolves.toBe('hello')
-    });
-});
-
 describe('validate() method with conditions.', () => {
     it('should throw Error', async () => {
         const schema = new Schema().oneOf(['hello', 5, false, null, undefined]);
