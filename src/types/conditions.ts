@@ -3,3 +3,7 @@ export interface Conditions {
     nullable: boolean
     oneOf?: Array<any>
 }
+
+export interface StringConditions extends Conditions{
+    length?: number
+}

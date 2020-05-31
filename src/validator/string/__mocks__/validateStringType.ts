@@ -1,0 +1,1 @@
+export const validateStringType = jest.fn();
