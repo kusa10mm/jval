@@ -13,13 +13,13 @@ export class StringSchema<T> extends Schema<T> {
 
     async validate<V extends T>(value: V): Promise<V> {
         baseValidate(value, this.conditions);
+
+        if (value === null || value === undefined) return value;
+        if (typeof value !== "string") throw new Error('invalid type');
+
         stringValidate(value, this.conditions);
         return value;
     }
-
-    // private stringValidate(value: any): void {
-    //     if (typeof value !== "string" && typeof value !== "undefined") throw new Error('invalid');
-    // }
 
     length(length: number): StringSchema<T> {
         this.conditions.length = length;

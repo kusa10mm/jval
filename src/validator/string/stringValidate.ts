@@ -1,8 +1,6 @@
 import {StringConditions} from "../../types/conditions";
-import {validateStringType} from "./validateStringType";
 import {validateLength} from "./validateLength";
 
-export const stringValidate = (value: any, conditions: StringConditions): void => {
-    validateStringType(value);
+export const stringValidate = (value: string, conditions: StringConditions): void => {
     validateLength(value, conditions);
 };
