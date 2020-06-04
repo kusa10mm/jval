@@ -25,4 +25,14 @@ export class StringSchema<T> extends Schema<T> {
         this.conditions.length = length;
         return this
     }
+
+    min(min: number): StringSchema<T> {
+        this.conditions.min = min;
+        return this
+    }
+
+    max(max: number): StringSchema<T> {
+        this.conditions.max = max;
+        return this
+    }
 }

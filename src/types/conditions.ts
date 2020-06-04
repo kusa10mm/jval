@@ -6,4 +6,6 @@ export interface Conditions {
 
 export interface StringConditions extends Conditions{
     length?: number
+    min?: number
+    max?: number
 }

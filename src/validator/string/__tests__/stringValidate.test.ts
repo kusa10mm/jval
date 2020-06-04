@@ -9,6 +9,6 @@ describe('test stringValidate function', () => {
    it('should call validators with value and conditions', () => {
        const conditions: StringConditions = {required: false, nullable: true};
        stringValidate('hello', conditions);
-       expect(mocked(validateLength)).toBeCalledWith('hello', conditions)
+       expect(mocked(validateLength)).toBeCalledWith('hello', conditions);
    });
 });
