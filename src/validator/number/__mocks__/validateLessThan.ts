@@ -1,0 +1,1 @@
+export const validateLessThan = jest.fn();
