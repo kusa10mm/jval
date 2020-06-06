@@ -1,4 +1,4 @@
-import {baseValidate} from "../../validator/baseValidate";
+import {baseValidate} from "../../validator/base/baseValidate";
 import {Conditions} from "../../types/conditions";
 
 export class Schema<T = any> {

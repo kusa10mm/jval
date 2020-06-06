@@ -1,4 +1,4 @@
-import {Conditions} from "../../types/conditions";
+import {Conditions} from "../../../types/conditions";
 import {validateOneOf} from "../validateOneOf";
 
 describe('test validateOneOf() method', () => {

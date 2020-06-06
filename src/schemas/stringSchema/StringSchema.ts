@@ -1,5 +1,5 @@
 import {Schema} from "../schema/Schema";
-import {baseValidate} from "../../validator/baseValidate";
+import {baseValidate} from "../../validator/base/baseValidate";
 import {StringConditions} from "../../types/conditions";
 import {stringValidate} from "../../validator/string/stringValidate";
 

@@ -1,4 +1,4 @@
-import {Conditions} from "../../types/conditions";
+import {Conditions} from "../../../types/conditions";
 import {validateRequired} from "../validateRequired";
 
 describe('test validateRequired() method', () => {

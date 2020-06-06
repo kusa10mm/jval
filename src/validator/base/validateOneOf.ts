@@ -1,4 +1,4 @@
-import {Conditions} from "../types/conditions";
+import {Conditions} from "../../types/conditions";
 
 export const validateOneOf = (value: any, conditions: Conditions) => {
     if (conditions.oneOf === undefined) return;

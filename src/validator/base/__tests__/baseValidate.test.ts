@@ -3,7 +3,7 @@ import {mocked} from "ts-jest/utils";
 import {validateNullable} from "../validateNullable";
 import {validateOneOf} from "../validateOneOf";
 import {validateRequired} from "../validateRequired";
-import {Conditions} from "../../types/conditions";
+import {Conditions} from "../../../types/conditions";
 
 jest.mock('../validateRequired');
 jest.mock('../validateNullable');

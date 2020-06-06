@@ -1,5 +1,5 @@
 import {validateNullable} from "../validateNullable";
-import {Conditions} from "../../types/conditions";
+import {Conditions} from "../../../types/conditions";
 
 describe('test validateNullable() method', () => {
     it('should not throw error with nullable true', () => {
