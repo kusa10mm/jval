@@ -1,3 +1,5 @@
+import {Schema} from "../schemas/schema/Schema";
+
 export interface Conditions {
     required: boolean
     nullable: boolean
@@ -18,6 +20,8 @@ export interface NumberConditions extends Conditions {
     moreThan?: number
 }
 
-export interface ObjectConditions extends Conditions{
-
+export interface ObjectConditions<T extends object> extends Conditions {
+    fields?: {
+        [key in keyof T]: Schema<T[key]>
+    };
 }
